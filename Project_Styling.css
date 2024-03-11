@@ -1,7 +1,5 @@
 .Game_Selection {
-    color: black;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font: bolder;
+    background-color: #EABE6C;
 }
 ul.navbar{
     list-style-type: none;
@@ -22,7 +20,9 @@ li.navbar a.navbar:hover {
     background-color: #111;
   }
 body {
+    color: black;
     background-color: #FFEDD8;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font: bolder;
 }
 
