@@ -11,6 +11,7 @@ ul.navbar{
 }
 li.navbar {
     display: inline;
+    color: white;
   }
 li.navbar a.navbar {
     color: white;
