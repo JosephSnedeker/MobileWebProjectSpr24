@@ -15,7 +15,7 @@
         <div>
             <ul class="navbar">
                 <li class="navbar"><a class="navbar" href="index.html">Home</a></li>
-                <li class="navbar"><a class="navbar" href="games.html">Games</a></li>
+                <li class="navbar"><a class="navbar" href=#>Games</a></li>
                 <li class="navbar"><a class="navbar" href=#>Contact</a></li>
                 <li class="navbar" style="float:right"><a class="navbar" href=#>Login</a></li>
             </ul>
@@ -31,12 +31,6 @@
             <div class="Game_Selection">
                 <h2>Game Two: Connect Four</h2>
                 <p>Can you connect four before your oppenent? Choose between offline and online play!</p>
-                <button><a href=#>Offline Play</a></button>
-                <button><a href=#>Online Play</a></button>
-            </div>
-            <div class="Game_Selection">
-                <h2>Game Two: Tic-Tac-Toe</h2>
-                <p>Can you reach Tic-Tac-Toe? Choose between offline and online play!</p>
                 <button><a href=#>Offline Play</a></button>
                 <button><a href=#>Online Play</a></button>
             </div>
