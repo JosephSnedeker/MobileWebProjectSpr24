@@ -1,6 +1,32 @@
 .Game_Selection {
-    color: blue;
-    background-color: greenyellow;
+    background-color: #EABE6C;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+ul.navbar{
+    list-style-type: none;
+    margin: 0;
+    padding: 14px 16px;
+    background-color: #240A34; 
+}
+li.navbar {
+    display: inline;
+    color: white;
+  }
+li.navbar a.navbar {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li.navbar a.navbar:hover {
+    background-color: #111;
+  }
+body {
+    color: black;
+    margin: 0;
+    background-color: #FFEDD8;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font: bolder;
 }
 
