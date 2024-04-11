@@ -1,41 +1,133 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <link rel="stylesheet" href="Project_Styling.css">
-        <style>
-            h1 {
-                text-align:center;
-                margin: auto;
-                padding: 1rem;
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Offline Bingo</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .bingo-card {
+        display: inline-block;
+        border: 2px solid #000;
+        padding: 10px;
+    }
+    .bingo-row {
+        display: flex;
+    }
+    .bingo-cell {
+        flex: 1;
+        border: 1px solid #000;
+        height: 50px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 18px;
+    }
+    .bingo-cell.selected {
+        background-color: lightgreen;
+    }
+    button {
+        margin-top: 10px;
+        font-size: 16px;
+        padding: 10px 20px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+<h1>Offline Bingo</h1>
+<div id="bingoBoard" class="bingo-card"></div>
+<button onclick="generateBoard()">Generate Board</button>
+<button onclick="checkBingo()">Bingo!</button>
+<script>
+function generateBoard() {
+    var numbers = [];
+    for (var i = 1; i <= 25; i++) {
+        numbers.push(i);
+    }
+    shuffleArray(numbers);
+    var bingoBoard = document.getElementById('bingoBoard');
+    bingoBoard.innerHTML = '';
+    for (var i = 0; i < 5; i++) {
+        var row = document.createElement('div');
+        row.className = 'bingo-row';
+        for (var j = 0; j < 5; j++) {
+            var cell = document.createElement('div');
+            cell.className = 'bingo-cell';
+            cell.textContent = numbers[i * 5 + j];
+            cell.addEventListener('click', toggleCell);
+            row.appendChild(cell);
+        }
+        bingoBoard.appendChild(row);
+    }
+}
+
+function toggleCell() {
+    this.classList.toggle('selected');
+}
+
+function checkBingo() {
+    var rows = document.getElementsByClassName('bingo-row');
+    var cols = [];
+    var diagonals = [[], []];
+
+    for (var j = 0; j < 5; j++) {
+        cols.push([]);
+    }
+    for (var i = 0; i < rows.length; i++) {
+        var cells = rows[i].getElementsByClassName('bingo-cell');
+        for (var j = 0; j < cells.length; j++) {
+            if (cells[j].classList.contains('selected')) {
+                cols[j].push(cells[j]);
+                if (i === j) diagonals[0].push(cells[j]);
+                if (i + j === 4) diagonals[1].push(cells[j]);
             }
-        </style>
-    </head>
-    <body>
-        <div>
-            <div>
-                <ul class="navbar">
-                    <li class="navbar"><a class="navbar" href="index.html">Home</a></li>
-                    <li class="navbar"><a class="navbar" href="games.html">Games</a></li>
-                    <li class="navbar" style = "margin: 35%;">Fun N' Games Incorporated</li>
-                    <li class="navbar" style="float:right"><a class="navbar" href=login.html>Login</a></li>
-                </ul>
-            </div>
-        </div>
-        <div>
-            <h1>Welcome to Our List of Games!</h1>
-            <div class="Game_Selection">
-                <h2>Game One: Bingo</h2>
-                <p>A classic game of Bingo! Choose between offline and online play!</p>
-                <button><a href=#>Offline Play</a></button>
-                <button><a href=#>Online Play</a></button>
-            </div>
-            <div class="Game_Selection">
-                <h2>Game Two: Connect Four</h2>
-                <p>Can you connect four before your oppenent? Choose between offline and online play!</p>
-                <button><a href=#>Offline Play</a></button>
-                <button><a href=#>Online Play</a></button>
-            </div>
-        </div>
-    </body>
+        }
+        if (cols[i].length === 5 || rows[i].getElementsByClassName('selected').length === 5) {
+            alert('Bingo! Horizontal');
+            return;
+        }
+    }
+
+    for (var k = 0; k < cols.length; k++) {
+        if (cols[k].length === 5) {
+            alert('Bingo! Vertical');
+            return;
+        }
+    }
+
+    for (var k = 0; k < diagonals.length; k++) {
+        if (diagonals[k].length === 5) {
+            alert('Bingo! Diagonal');
+            return;
+        }
+    }
+
+    alert('No Bingo yet!');
+}
+
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+</script>
+</body>
 </html>
+
