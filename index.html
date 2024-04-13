@@ -2,25 +2,69 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <link rel="stylesheet" href="Project_Styling.css">
+        <script type="text/javascript">
+            function calculations() {
+                let firstInput = parseInt(document.getElementById("firstInput").value);
+                let secondInput = parseInt(document.getElementById("secondInput").value);
+                if (document.getElementById("arithmetic").value == "+") {
+                    result = firstInput + secondInput;
+                    document.getElementById("result").innerHTML = result;   
+                }
+                else if (document.getElementById("arithmetic").value == "-") {
+                    result = firstInput - secondInput;
+                    document.getElementById("result").innerHTML = result;   
+                }
+                else if (document.getElementById("arithmetic").value == "*") {
+                    result = firstInput * secondInput;
+                    document.getElementById("result").innerHTML = result;   
+                }
+                else {
+                    result = firstInput / secondInput;
+                    document.getElementById("result").innerHTML = result;   
+                }
+            }
+            function divideZero() {
+                let secondInput = parseInt(document.getElementById("secondInput").value);
+                const button = document.getElementById("submit");
+                if (secondInput == 0 && document.getElementById("arithmetic").value == "/") {
+                    document.getElementById("zero").innerHTML = "You Cannnot Divide by 0!";
+                    button.disabled = true;
+                }
+                else {
+                    document.getElementById("zero").innerHTML = "";
+                    button.disabled = false;
+                }
+            }
+        </script>
+        <style>
+            body {
+                color: black;
+                margin: 0;
+                background-color: #FFEDD8;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font: bolder;
+            }
+            #result {
+                display: inline;
+            }
+        </style>
     </head>
     <body>
-        <div>
-            <ul class="navbar">
-                <li class="navbar"><a class="navbar" href="index.html">Home</a></li>
-                <li class="navbar"><a class="navbar" href="games.html">Games</a></li>
-                <li class="navbar" style = "margin: 35%;">Fun N' Games Incorporated</li>
-                <li class="navbar" style="float:right"><a class="navbar" href=login.html>Login</a></li>
-            </ul>
-        </div>
-        <div>
-            <h2>Bingo</h2>
-            <h3>Bingo Games</h3>
-            <p>Welcome to Bingo, please join a game!</p>
-            <a href="games.html">Enter Game</a>
-        </div>
-        <div>
-            <h2>About this Website: </h2>
-        </div>
+        <h1>Welcome to Calculator</h1>
+        <label for="Calculator">Please Run Your Calculation!</label><br><br>
+        <input type="number" id="firstInput" name="firstInput" value="25">
+        <select id="arithmetic" name="arithmetic" onchange="divideZero()">
+            <option value="+" >Plus</option>
+            <option value="-">Minus</option>
+            <option value="*">Multiplied By</option>
+            <option value="/">Divided By</option>
+        </select>
+        <input type="number" id="secondInput" name="secondInput" value="25" oninput="divideZero()">
+        =
+        <p id="result"></p>
+        <p id="zero"></p><br>
+        <button id="submit" onclick="calculations()">Calculate!</button>
     </body>
 </html>
+
+
