@@ -5,17 +5,6 @@ const { argv } = require('node:process');
 // open the database
  let db = new sqlite3.Database('./db/Users.db');
  
-
- let sql1 = `create table Users(
-	 	UserID integer primary key autoincrement,
-		UserPass text not null,
-	 	UserName varchar(20) not null,
-	 	TTTWins int,
-	 	BWins int,
-	 	CWins int
-	 );`;
- let sql2 = 'pragma table_info(Users)'
- let sql3 = "drop table Users;"
  let sql4 = "select * from Users;"
 
  db.all(sql4, [], (err, rows) => {
