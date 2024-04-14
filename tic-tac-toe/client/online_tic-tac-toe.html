@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <link rel="stylesheet" href="C:\Users\chanz\Desktop\MobileWebProjectSpr24\Project_Styling.css">
+        <link rel="stylesheet" href="../../Project_Styling.css">
         <style>
             h1 {
                 text-align:center;
@@ -31,12 +31,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="socket.io/socket.io.js"></script>
         <script src="script.js"></script>
+	<script>
+            function setAction() {
+            document.getElementById("mybutton").href = window.location.toString().slice(0,-5) + "index.html";
+            }
+        </script>
     </head>
 
     <body>
         <div>
             <ul class="navbar">
-                <li class="navbar"><a class="navbar" href="index.html">Home</a></li>
+                <li class="navbar"><a id="mybutton" class="navbar" href="index.html" onclick="setAction()">Home</a></li>
                 <li class="navbar"><a class="navbar" href="Games.html">Games</a></li>
                 <li class="navbar"><a class="navbar" href=login.html>Login</a></li>
                 <li class="navbar">Fun N' Games Incorporated</li>
