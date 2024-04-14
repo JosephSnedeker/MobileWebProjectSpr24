@@ -106,3 +106,10 @@ body {
     text-align: center; 
 } 
   
+@media(max-width:768px){
+    .li.navbar{
+        display: flex;
+        justify-content: center;
+        color: white;
+    }
+}
