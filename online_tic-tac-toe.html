@@ -10,6 +10,7 @@
                 padding: 1rem;
             }
         </style>
+        <script src="offline_tic-tac-toe.js"></script> 
     </head>
     <body>
         <div>
@@ -17,23 +18,41 @@
                 <li class="navbar"><a class="navbar" href="index.html">Home</a></li>
                 <li class="navbar"><a class="navbar" href="games.html">Games</a></li>
                 <li class="navbar" style = "margin: 35%;">Fun N' Games Incorporated</li>
-                <li class="navbar" style = "margin: 35%;">Fun N' Games Incorporated</li>
                 <li class="navbar" style="float:right"><a class="navbar" href=login.html>Login</a></li>
             </ul>
         </div>
-        <div>
-            <h1>Tic-Tac-Toe | Online</h1>
-            <h2>Current Games</h2>
-            <div class="Game_Selection">
-                <h3>Game One</h3>
-                <p>A classic game of Bingo! Choose between offline and online play!</p>
+        <div id="main"> 
+            <h1>TIC-TAC-TOE</h1> 
+            <p> 
+                Game starts by just tapping on a box!<br><br>
+                First Player starts as <b>Player X</b> and Second Player as <b>Player O</b> 
+            </p> 
+            <br><br> 
+            <div class="game_container">
+                <div class = "ui"> 
+                    <div class="row"> 
+                        <input type="text" id= "b1" class="cell" onclick="myfunc_3(); myfunc();" readonly> 
+                        <input type="text" id= "b2" class="cell" onclick="myfunc_4(); myfunc();" readonly> 
+                        <input type="text" id= "b3" class="cell" onclick="myfunc_5(); myfunc();" readonly> 
+                    </div> 
+                    <div class="row"> 
+                        <input type="text" id= "b4" class="cell" onclick="myfunc_6(); myfunc();" readonly> 
+                        <input type="text" id= "b5" class="cell" onclick="myfunc_7(); myfunc();" readonly> 
+                        <input type="text" id= "b6" class="cell" onclick="myfunc_8(); myfunc();" readonly> 
+                    </div> 
+                    <div class="row"> 
+                        <input type="text" id= "b7" class="cell" onclick="myfunc_9(); myfunc();" readonly> 
+                        <input type="text" id= "b8" class="cell" onclick="myfunc_10();myfunc();" readonly> 
+                        <input type="text" id= "b9" class="cell" onclick="myfunc_11();myfunc();" readonly> 
+                    </div> 
+                </div> 
             </div>
-            <div class="Game_Selection">
-                <h2>Game Two: Connect Four</h2>
-                <p>Can you connect four before your oppenent? Choose between offline and online play!</p>
-                <button><a href=#>Offline Play</a></button>
-                <button><a href=#>Online Play</a></button>
-            </div>
-        </div>
+            <br><br><br> 
+            <button id="but" onclick="myfunc_2()"> 
+                RESET 
+            </button> 
+            <br><br> 
+            <p id="print"></p> 
+        </div> 
     </body>
 </html>
