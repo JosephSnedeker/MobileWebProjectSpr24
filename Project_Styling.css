@@ -12,7 +12,7 @@ ul.navbar{
 li.navbar {
     display: inline;
     color: white;
-  }
+}
 li.navbar a.navbar {
     color: white;
     text-align: center;
@@ -106,7 +106,7 @@ body {
 } 
   
 @media(max-width:768px){
-    .li.navbar{
+    li.navbar{
         display: flex;
         justify-content: center;
         color: white;
