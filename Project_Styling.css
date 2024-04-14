@@ -33,6 +33,7 @@ body {
     border: 2px solid black;
     padding: 4rem;
     background-color: white;
+    margin: 0 30%;
 }
 .ui { 
     display: flex; 
@@ -109,6 +110,8 @@ body {
     li.navbar{
         display: flex;
         justify-content: center;
-        color: white;
+    }
+    .game_container {
+        margin: 0 
     }
 }
