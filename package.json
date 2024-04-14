@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5",
+    "sqlite3": "^5.1.7"
+  },
+  "name": "mobilewebprojectspr24",
+  "version": "1.0.0",
+  "main": "online_tic-tac-toe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node tic-tac-toe/server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

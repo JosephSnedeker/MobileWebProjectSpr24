@@ -12,7 +12,7 @@ ul.navbar{
 li.navbar {
     display: inline;
     color: white;
-  }
+}
 li.navbar a.navbar {
     color: white;
     text-align: center;
@@ -29,4 +29,89 @@ body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font: bolder;
 }
+.game_container {
+    border: 2px solid black;
+    padding: 4rem;
+    background-color: white;
+    margin: 0 30%;
+}
+.ui { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+} 
+.row { 
+    display: flex; 
+} 
+.cell { 
+    border: 2px solid black;
+    width: 80px; 
+    height: 80px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 24px; 
+    text-align: center; 
+    cursor: pointer; 
+}   
+.cell:active { 
+    background-color: lightgray;
+    outline: none; 
+} 
+/* 3*3 Grid */
+#b1, #b2, #b3, #b4, #b6{
+    border-bottom: 1px solid black; 
+}
 
+#b1, #b2, #b4, #b7, #b8{
+    border-right: 1px solid black; 
+}
+
+#b2, #b3, #b6, #b8, #b9{
+    border-left: 1px solid black; 
+}
+
+#b4, #b6, #b7, #b8, #b9{
+    border-top: 1px solid black; 
+}
+  
+#b5 { 
+    border: 1px solid black; 
+} 
+  
+/* Reset Button */
+#but { 
+    box-sizing: border-box; 
+    width: 95px; 
+    height: 40px; 
+    border: 1px solid black; 
+    margin-left: auto; 
+    border-radius: 8px; 
+    font-family: Verdana, 
+        Geneva, Tahoma, sans-serif; 
+  
+    background-color: whitesmoke; 
+    color: dodgerblue; 
+    font-size: 20px; 
+    cursor: pointer; 
+} 
+  
+/* Player turn space */
+#print { 
+    font-size: 20px; 
+} 
+  
+/* Main Container */
+#main { 
+    text-align: center; 
+} 
+  
+@media(max-width:768px){
+    li.navbar{
+        display: flex;
+        justify-content: center;
+    }
+    .game_container {
+        margin: 0 
+    }
+}
