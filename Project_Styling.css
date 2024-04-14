@@ -32,7 +32,6 @@ body {
 .game_container {
     border: 2px solid black;
     padding: 4rem;
-    margin:0 20%;
     background-color: white;
 }
 .ui { 
