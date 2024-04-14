@@ -9,7 +9,7 @@
   "main": "online_tic-tac-toe.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/index.js"
+    "start": "node tic-tac-toe/server/index.js"
   },
   "author": "",
   "license": "ISC",
