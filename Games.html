@@ -12,7 +12,7 @@
         </style>
         <script>
             function setAction() {
-            document.getElementById("mybutton").href = window.location.toString() +":8080";
+            document.getElementById("mybutton").href = window.location.toString().slice(0,-11) +":8080";
             }
         </script>
     </head>
