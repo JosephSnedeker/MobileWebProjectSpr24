@@ -45,6 +45,12 @@
     button:hover {
         background-color: #0056b3;
     }
+    #randomNumberBox {
+        margin-top: 20px;
+        font-size: 24px;
+        border: 2px solid #000;
+        padding: 10px;
+    }
 </style>
 </head>
 <body>
@@ -52,7 +58,11 @@
 <div id="bingoBoard" class="bingo-card"></div>
 <button onclick="generateBoard()">Generate Board</button>
 <button onclick="checkBingo()">Bingo!</button>
+<div id="randomNumberBox"></div>
 <script>
+// Declare a variable to track whether the board is generated
+var boardGenerated = false;
+
 function generateBoard() {
     var numbers = [];
     for (var i = 1; i <= 25; i++) {
@@ -73,6 +83,11 @@ function generateBoard() {
         }
         bingoBoard.appendChild(row);
     }
+
+    // Set boardGenerated to true after generating the board
+    boardGenerated = true;
+    // Start updating random number only after board is generated
+    updateRandomNumber();
 }
 
 function toggleCell() {
@@ -125,6 +140,18 @@ function shuffleArray(array) {
         var temp = array[i];
         array[i] = array[j];
         array[j] = temp;
+    }
+}
+
+// Function to update random number box every 5 seconds
+function updateRandomNumber() {
+    // Check if the board is generated before starting the countdown
+    if (boardGenerated) {
+        var randomNumberBox = document.getElementById('randomNumberBox');
+        setInterval(function() {
+            var randomNumber = Math.floor(Math.random() * 30) + 1;
+            randomNumberBox.textContent = "Random Number: " + randomNumber;
+        }, 5000);
     }
 }
 </script>
