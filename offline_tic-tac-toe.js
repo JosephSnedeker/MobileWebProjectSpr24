@@ -246,7 +246,7 @@ function myfunc() {
     else if ((b2 == 'o' || b2 == 'O') && (b5 == 'o' || 
         b5 == 'O') && (b8 == 'o' || b8 == 'O')) { 
         document.getElementById('print') 
-            .innerHTML = "Player 0 won"; 
+            .innerHTML = "Player O won"; 
         b1btn.disabled = true; 
         b3btn.disabled = true; 
         b4btn.disabled = true; 
