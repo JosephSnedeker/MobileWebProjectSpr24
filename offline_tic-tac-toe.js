@@ -1,3 +1,5 @@
+//Base JavaScript for tic-tac-toe game based on https://www.geeksforgeeks.org/simple-tic-tac-toe-game-using-javascript/
+
 // Function called whenever user tab on any box 
 function logic() { 
   

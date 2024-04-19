@@ -48,10 +48,10 @@ function isGameOver() {
 function renderTurnMessage() {
     if (!myTurn) { // If not player's turn disable the board
         $("#message").text("Your opponent's turn");
-        $(".board button").attr("disabled", true);
+        $(".row").attr("disabled", true);
     } else { // Enable it otherwise
         $("#message").text("Your turn.");
-        $(".board button").removeAttr("disabled");
+        $(".row").removeAttr("disabled");
     }
 }
 
@@ -110,9 +110,6 @@ $(function() {
   $(".board button").attr("disabled", true); // Disable board at the beginning
   $(".board> button").on("click", makeMove);
 });
-
-
-
 
 
 /////
