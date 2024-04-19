@@ -87,7 +87,7 @@ socket.on("move.made", function(data) {
             $("#message").text("You won!");
         }
 
-        $(".board button").attr("disabled", true); // Disable board
+        $(".cell").attr("disabled", true); // Disable board
     }
 });
 
@@ -102,13 +102,13 @@ socket.on("game.begin", function(data) {
 // Bind on event for opponent leaving the game
 socket.on("opponent.left", function() {
     $("#message").text("Your opponent left the game.");
-    $(".board button").attr("disabled", true);
+    $(".cell").attr("disabled", true);
 });
 
 // Binding buttons on the board
 $(function() {
-  $(".board button").attr("disabled", true); // Disable board at the beginning
-  $(".board> button").on("click", makeMove);
+  $(".cell").attr("disabled", true); // Disable board at the beginning
+  $(".cell").on("click", makeMove);
 });
 
 
