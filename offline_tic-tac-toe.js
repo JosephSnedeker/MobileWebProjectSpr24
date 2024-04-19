@@ -1,5 +1,5 @@
 // Function called whenever user tab on any box 
-function myfunc() { 
+function logic() { 
   
     // Setting DOM to all boxes or input field 
     var b = [];
@@ -159,7 +159,6 @@ function myfunc() {
             btn[i].style.color = "red"; 
         }
     }
-  
     //Checking for player tie 
     else if ((b[1] == 'X' || b[1] == 'O') && (b[2] == 'X'
         || b[2] == 'O') && (b[3] == 'X' || b[3] == 'O') && 
@@ -169,8 +168,8 @@ function myfunc() {
             b[8] == 'O') && (b[9] == 'X' || b[9] == 'O')) { 
         document.getElementById('print').innerHTML = "Match Tie"; 
     } 
+    //Printing player turn
     else { 
-        // Here, Printing Result 
         if (flag == 1) { 
             document.getElementById('print').innerHTML = "Player X Turn"; 
         } 
@@ -181,13 +180,13 @@ function myfunc() {
 } 
   
 // Function to reset game 
-function myfunc_2() { 
+function reload_Game() { 
     location.reload(); 
 } 
   
 //Player action, switches flag to inititate next player turn
 flag = 1; 
-function myfunc_3(num) { 
+function insert_Letter(num) { 
     if (flag == 1) { 
         document.getElementById("b" + num).value = "X"; 
         document.getElementById("b" + num).disabled = true; 
