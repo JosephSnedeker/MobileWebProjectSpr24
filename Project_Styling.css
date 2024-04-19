@@ -34,7 +34,15 @@ body {
     padding: 4rem;
     background-color: white;
     margin: 0 30%;
+    
 }
+.game_container_c4 {
+	border: 2px solid black;
+	padding: 4rem;
+	background-color: white;
+	margin: 0 25%;
+}
+		
 .ui { 
     display: flex; 
     flex-direction: column; 
