@@ -136,8 +136,14 @@
         <script src="socket.io/socket.io.js"></script>
         <script src="script.js"></script>
 	    <script>
-            function setAction() {
+            function goHome() {
                 document.getElementById("mybutton").href =  window.location.toString().slice(0,-6) + "/index.html";
+            }
+            function goGames() {
+                document.getElementById("mybutton").href =  window.location.toString().slice(0,-6) + "/Games.html";
+            }
+            function goLogin() {
+                document.getElementById("mybutton").href =  window.location.toString().slice(0,-6) + "/login.html";
             }
         </script>
     </head>
@@ -145,19 +151,13 @@
     <body>
         <div>
             <ul class="navbar">
-                <li class="navbar"><a id="mybutton" class="navbar" href="" onclick="setAction()">Home</a></li>
-                <li class="navbar"><a class="navbar" href="../../Games.html">Games</a></li>
-                <li class="navbar"><a class="navbar" href="../../login.html">Login</a></li>
+                <li class="navbar"><a id="mybutton" class="navbar" href="#" onclick="goHome()">Home</a></li>
+                <li class="navbar"><a id="mybutton" class="navbar" href="#" onclick="goGames()">Games</a></li>
+                <li class="navbar"><a id="mybutton" class="navbar" href="#" onclick="goLogin()">Login</a></li>
                 <li class="navbar">Fun N' Games Incorporated</li>
             </ul>
         </div>
         <div id="message">Waiting for an opponent...</div>
-
-        <div class="board">
-            <button id="r0c0"></button> <button id="r0c1"></button> <button id="r0c2"></button>
-            <button id="r1c0"></button> <button id="r1c1"></button> <button id="r1c2"></button>
-            <button id="r2c0"></button> <button id="r2c1"></button> <button id="r2c2"></button>
-        </div>
         <div id="main"> 
             <h1>TIC-TAC-TOE</h1> 
             <p> 
