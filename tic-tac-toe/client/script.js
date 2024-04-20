@@ -164,11 +164,13 @@ socket.on("move.made", function(data) {
         myTurn = symbol !== "X";
     }
 
-    if (!isGameOver()) { // If game isn't over show who's turn is this
-        renderTurnMessage();
-    } else if(GameTied()) {
+    if(GameTied() == true) {
         $("#message").text("Game Tied!");
-    } else { // Else show win/lose message
+    } 
+    else if (!isGameOver()) { // If game isn't over show who's turn is this
+        renderTurnMessage();
+    } 
+    else { // Else show win/lose message
         if (myTurn) {
             $("#message").text("You lost.");
         } else {
