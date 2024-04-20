@@ -220,7 +220,7 @@ function insert_Letter(num) {
 } 
 
 function CheckBoard() {
-    for(i=0;i<10;i++) {
+    for(i=1;i<10;i++) {
         if(document.getElementById("b" + i).value == "X" || document.getElementById("b" + i).value == "O") {
             document.getElementById("b" + i).disabled = true;
         }
