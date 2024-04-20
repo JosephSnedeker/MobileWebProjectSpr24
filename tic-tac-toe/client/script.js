@@ -152,7 +152,7 @@ function makeMove(e) {
 
 // Bind event on players move
 socket.on("move.made", function(data) {
-    if(data.position != null) {
+    if(document.getElementById(data.position).value != "X" && document.getElementById(data.position).value != "O") {
     $(insert_Letter(data.position))
     if(flag == 0) {
         flag = 1;
