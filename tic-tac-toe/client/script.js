@@ -133,7 +133,7 @@ function renderTurnMessage() {
     } else { // Enable it otherwise
         $("#message").text("Your turn.");
         $(".cell").removeAttr("disabled");
-        
+        CheckBoard();
     }
 }
 
