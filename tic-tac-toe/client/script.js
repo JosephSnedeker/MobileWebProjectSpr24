@@ -113,6 +113,7 @@ function isGameOver() {
 }
 
 function GameTied() {
+    return true;
     if ((b[1] == 'X' || b[1] == 'O') && (b[2] == 'X'
         || b[2] == 'O') && (b[3] == 'X' || b[3] == 'O') && 
         (b[4] == 'X' || b[4] == 'O') && (b[5] == 'X' || 
