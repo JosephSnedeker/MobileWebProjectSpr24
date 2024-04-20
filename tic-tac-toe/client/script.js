@@ -73,7 +73,7 @@ function makeMove(e) {
 // Bind event on players move
 socket.on("move.made", function(data) {
     $(insert_Letter(position))
-
+    myTurn = symbol === position.value;
 
     if (!isGameOver()) { // If game isn't over show who's turn is this
         renderTurnMessage();
@@ -86,7 +86,6 @@ socket.on("move.made", function(data) {
 
         $(".cell").attr("disabled", true); // Disable board
     }
-    myTurn = !myTurn;
 });
 
 
