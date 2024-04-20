@@ -137,7 +137,7 @@ function renderTurnMessage() {
     }
 }
 
-function makeMove(e) {
+function makeMove() {
     if (!myTurn) {
         return; // Shouldn't happen since the board is disabled
     }
@@ -164,12 +164,12 @@ socket.on("move.made", function(data) {
         myTurn = symbol !== "X";
     }
 
-    if (!isGameOver()) { // If game isn't over show who's turn is this
-        renderTurnMessage();
-    } 
-    else if(GameTied()) {
+    if(GameTied()) {
         $("#message").text("Game Tied!");
     }
+    else if (!isGameOver()) { // If game isn't over show who's turn is this
+        renderTurnMessage();
+    } 
     else { // Else show win/lose message
         if (myTurn) {
             $("#message").text("You lost.");
