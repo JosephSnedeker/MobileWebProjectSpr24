@@ -164,7 +164,8 @@ socket.on("move.made", function(data) {
         myTurn = symbol !== "X";
     }
 
-    if(1==1) {
+    isTied = GameTied();
+    if(isTied == true) {
         $("#message").text("Game Tied!");
     } 
     else if (!isGameOver()) { // If game isn't over show who's turn is this
@@ -179,7 +180,6 @@ socket.on("move.made", function(data) {
 
         $(".cell").attr("disabled", true); // Disable board
     }
-    
 });
 
 
