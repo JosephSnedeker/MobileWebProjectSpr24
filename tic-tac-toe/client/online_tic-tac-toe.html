@@ -1,18 +1,124 @@
 
 <html>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="socket.io/socket.io.js"></script>
-        <script src="script.js"></script>
-    </head>
-
-    <body>
+        <!-- Base html for tic-tac-toe game based on: https://www.geeksforgeeks.org/simple-tic-tac-toe-game-using-javascript/ -->
+        <!-- Online logic based on https://github.com/Xfox1/tic-tac-toe-->
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
         <style>
+	        .Game_Selection {
+                background-color: #EABE6C;
+                margin-left: 5%;
+                margin-right: 5%;
+            }
+            ul.navbar{
+                list-style-type: none;
+                margin: 0;
+                padding: 14px 16px;
+                background-color: #240A34; 
+            }
+            li.navbar {
+                display: inline;
+                color: white;
+            }
+            li.navbar a.navbar {
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li.navbar a.navbar:hover {
+                background-color: #111;
+            }
+            body {
+                color: black;
+                margin: 0;
+                background-color: #FFEDD8;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font: bolder;
+            }
+            .game_container {
+                border: 2px solid black;
+                padding: 4rem;
+                background-color: white;
+                margin: 0 30%;
+            }
+            .ui { 
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+            } 
+            .row { 
+                display: flex; 
+            } 
+            .cell { 
+                border: 2px solid black;
+                width: 80px; 
+                height: 80px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                font-size: 24px; 
+                text-align: center; 
+                cursor: pointer; 
+            }   
+            .cell:active { 
+                background-color: lightgray;
+                outline: none; 
+            } 
+            /* 3*3 Grid */
+            #b1, #b2, #b3, #b4, #b6{
+                border-bottom: 1px solid black; 
+            }
+            #b1, #b2, #b4, #b7, #b8{
+                border-right: 1px solid black; 
+            }
+            #b2, #b3, #b6, #b8, #b9{
+                border-left: 1px solid black; 
+            }
+            #b4, #b6, #b7, #b8, #b9{
+                border-top: 1px solid black; 
+            }
+            #b5 { 
+                border: 1px solid black; 
+            } 
+            /* Reset Button */
+            #but { 
+                box-sizing: border-box; 
+                border: 1px solid black; 
+                margin-left: auto; 
+                border-radius: 8px; 
+                font-family: Verdana, Geneva, Tahoma, sans-serif; 
+                background-color: whitesmoke; 
+                color: dodgerblue; 
+                font-size: 20px; 
+                cursor: pointer; 
+            } 
+            /* Player turn space */
+            #print { 
+                font-size: 20px; 
+            } 
+            /* Main Container */
+            #main { 
+                text-align: center; 
+            } 
+            @media(max-width:768px){
+                li.navbar{
+                    display: flex;
+                    justify-content: center;
+                }
+                .game_container {
+                    margin: 0 
+                }
+            }
+            h1 {
+                text-align:center;
+                margin: auto;
+                padding: 1rem;
+            }
             .board {
                 margin: auto;
                 width: 490px;
             }
-
             .board button {
                 height: 150px;
                 width: 150px;
@@ -20,22 +126,68 @@
                 margin: 5px;
                 font-size: 3em;
             }
-
             #message {
                 font-size: 3rem;
                 margin-bottom: 1rem;
                 text-align: center;
             }
         </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="socket.io/socket.io.js"></script>
+        <script src="script.js"></script>
+	    <script>
+            function goHome() {
+                document.getElementById("mybutton").href =  window.location.toString().slice(0,-6) + "/index.html";
+            }
+            function goGames() {
+                document.getElementById("mybutton2").href =  window.location.toString().slice(0,-6) + "/Games.html";
+            }
+            function goLogin() {
+                document.getElementById("mybutton3").href =  window.location.toString().slice(0,-6) + "/login.html";
+            }
+        </script>
+    </head>
 
-        <div id="message">Waiting for an opponent...</div>
-
-        <div class="board">
-            <button id="r0c0"></button> <button id="r0c1"></button> <button id="r0c2"></button>
-            <button id="r1c0"></button> <button id="r1c1"></button> <button id="r1c2"></button>
-            <button id="r2c0"></button> <button id="r2c1"></button> <button id="r2c2"></button>
+    <body>
+        <div>
+            <ul class="navbar">
+                <li class="navbar"><a id="mybutton" class="navbar" href="#" onclick="goHome()">Home</a></li>
+                <li class="navbar"><a id="mybutton2" class="navbar" href="#" onclick="goGames()">Games</a></li>
+                <li class="navbar"><a id="mybutton3" class="navbar" href="#" onclick="goLogin()">Login</a></li>
+                <li class="navbar">Fun N' Games Incorporated</li>
+            </ul>
         </div>
-
+        <div id="main"> 
+            <h1>TIC-TAC-TOE</h1> 
+            <p> 
+                <div id="message">Waiting for an opponent...</div><br><br>
+                First Player starts as <b>Player X</b> and Second Player as <b>Player O</b> 
+            </p> 
+            <br><br> 
+            <div class="game_container">
+                <div class = "ui"> 
+                    <div class="row"> 
+                        <input type="text" id= "b1" class="cell" onclick="insert_Letter('b1'); logic();" readonly> 
+                        <input type="text" id= "b2" class="cell" onclick="insert_Letter('b2'); logic();" readonly> 
+                        <input type="text" id= "b3" class="cell" onclick="insert_Letter('b3'); logic();" readonly> 
+                    </div> 
+                    <div class="row"> 
+                        <input type="text" id= "b4" class="cell" onclick="insert_Letter('b4'); logic();" readonly> 
+                        <input type="text" id= "b5" class="cell" onclick="insert_Letter('b5'); logic();" readonly> 
+                        <input type="text" id= "b6" class="cell" onclick="insert_Letter('b6'); logic();" readonly> 
+                    </div> 
+                    <div class="row"> 
+                        <input type="text" id= "b7" class="cell" onclick="insert_Letter('b7'); logic();" readonly> 
+                        <input type="text" id= "b8" class="cell" onclick="insert_Letter('b8'); logic();" readonly> 
+                        <input type="text" id= "b9" class="cell" onclick="insert_Letter('b9'); logic();" readonly> 
+                    </div> 
+                </div> 
+            </div>
+            <br><br><br> 
+            <button id="but" onclick="reload_Game()">Find New Opponent</button> 
+            <br><br> 
+            <p id="print"></p> 
+        </div> 
     </body>
 </html>
 
