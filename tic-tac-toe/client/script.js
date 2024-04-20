@@ -73,12 +73,13 @@ function makeMove(e) {
 // Bind event on players move
 socket.on("move.made", function(data) {
     $(insert_Letter(data.position))
-    myTurn = symbol === data.position.value;
-    if(flag ==0) {
+    if(flag == 0) {
         flag = 1;
+        myTurn = symbol !== "X";
     }
     else {
         flag = 0;
+        myTurn = symbol !== "O";
     }
 
     if (!isGameOver()) { // If game isn't over show who's turn is this
