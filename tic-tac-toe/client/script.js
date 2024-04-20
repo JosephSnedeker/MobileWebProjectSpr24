@@ -152,6 +152,7 @@ function makeMove(e) {
 
 // Bind event on players move
 socket.on("move.made", function(data) {
+    if(data.position != null) {
     $(insert_Letter(data.position))
     if(flag == 0) {
         flag = 1;
@@ -177,6 +178,7 @@ socket.on("move.made", function(data) {
 
         $(".cell").attr("disabled", true); // Disable board
     }
+    }
 });
 
 
@@ -199,9 +201,6 @@ $(function() {
   $(".cell").on("click", makeMove);
 });
 
-
-
-  
 // Function to reset game 
 function reload_Game() { 
     location.reload(); 
