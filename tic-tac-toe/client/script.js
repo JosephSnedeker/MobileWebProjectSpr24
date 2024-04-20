@@ -66,18 +66,13 @@ function makeMove(e) {
     }
 
     socket.emit("make.move", { // Valid move (on client side) -> emit to server
-        symbol: "X",
         position: $(this).attr("id")  
     });
 }
 
 // Bind event on players move
 socket.on("move.made", function(data) {
-    $("#" + data.position).text(data.symbol); // Render move
-
-    // If the symbol of the last move was the same as the current player
-    // means that now is opponent's turn
-    myTurn = data.symbol !== symbol;
+    $(insert_Letter(num)); // Render move
 
     if (!isGameOver()) { // If game isn't over show who's turn is this
         renderTurnMessage();
@@ -305,13 +300,13 @@ function reload_Game() {
 //Player action, switches flag to inititate next player turn
 function insert_Letter(num) { 
     if (flag == 1) { 
-        document.getElementById("b" + num).value = "X"; 
-        document.getElementById("b" + num).disabled = true; 
+        document.getElementById(num).value = "X"; 
+        document.getElementById(num).disabled = true; 
         flag = 0; 
     } 
     else { 
-        document.getElementById("b" + num).value = "O"; 
-        document.getElementById("b" + num).disabled = true; 
+        document.getElementById(num).value = "O"; 
+        document.getElementById(num).disabled = true; 
         flag = 1; 
     } 
 } 

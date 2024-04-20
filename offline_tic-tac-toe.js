@@ -190,13 +190,13 @@ function reload_Game() {
 flag = 1; 
 function insert_Letter(num) { 
     if (flag == 1) { 
-        document.getElementById("b" + num).value = "X"; 
-        document.getElementById("b" + num).disabled = true; 
+        document.getElementById(num).value = "X"; 
+        document.getElementById(num).disabled = true; 
         flag = 0; 
     } 
     else { 
-        document.getElementById("b" + num).value = "O"; 
-        document.getElementById("b" + num).disabled = true; 
+        document.getElementById(num).value = "O"; 
+        document.getElementById(num).disabled = true; 
         flag = 1; 
     } 
 } 
