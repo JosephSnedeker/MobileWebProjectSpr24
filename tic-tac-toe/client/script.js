@@ -124,7 +124,6 @@ function GameTied() {
     else {
         return false;
     }
-    return true;
 }
 
 function renderTurnMessage() {
@@ -165,7 +164,7 @@ socket.on("move.made", function(data) {
         myTurn = symbol !== "X";
     }
 
-    isTied = GameTied();
+    var isTied = GameTied();
     if(isTied == true) {
         $("#message").text("Game Tied!");
     } 
