@@ -6,20 +6,6 @@ var myTurn = true;
 var symbol;
 flag = 1; 
 
-function getBoardState() {
-  var obj = {};
-
-  /* We are creating an object where each attribute corresponds
-   to the name of a cell (r0c0, r0c1, ..., r2c2) and its value is
-   'X', 'O' or '' (empty).
-  */
-  $(".board button").each(function() {
-    obj[$(this).attr("id")] = $(this).text() || "";
-  });
-
-  return obj;
-}
-
 function isGameOver() {
     // Setting DOM to all boxes or input field 
     var b = [];
@@ -37,49 +23,40 @@ function isGameOver() {
     if (((b[1] == 'X') && (b[2] == 'X') && (b[3] == 'X')) || 
         ((b[1] == 'O') && (b[2] == 'O') && (b[3] == 'O'))) { 
         
-        for(i=4;i < 10;i++) {
-            btn[i].disabled = true;
-        }
+        $(".cell").attr("disabled", true);
+        
         for(i=1;i < 4;i++) {
             btn[i].style.color = "red"; 
         }
+        
         return true;
     } 
     else if (((b[1] == 'X') && (b[4] == 'X') && (b[7] == 'X')) ||
              ((b[1] == 'O') && (b[4] == 'O') && (b[7] == 'O'))) { 
         
-        btn[2].disabled = true; 
-        btn[3].disabled = true; 
-        btn[5].disabled = true; 
-        btn[6].disabled = true; 
-        btn[8].disabled = true; 
-        btn[9].disabled = true; 
+        $(".cell").attr("disabled", true);
   
         for(i=1;i<8;i=i+3){
             btn[i].style.color = "red"; 
         }
+        
         return true;
     } 
     else if (((b[7] == 'X') && (b[8] == 'X') && (b[9] == 'X')) ||
              ((b[7] == 'O') && (b[8] == 'O') && (b[9] == 'O'))) { 
  
-        for(i=1;i < 7;i++) {
-            btn[i].disabled = true;
-        }
+        $(".cell").attr("disabled", true);
+        
         for(i=7;i<10;i++){
             btn[i].style.color = "red"; 
         }
+        
         return true;
     } 
     else if (((b[3] == 'X') && (b[6] == 'X') && (b[9] == 'X')) ||
              ((b[3] == 'O') && (b[6] == 'O') && (b[9] == 'O'))) { 
 
-        btn[1].disabled = true; 
-        btn[2].disabled = true; 
-        btn[4].disabled = true; 
-        btn[5].disabled = true; 
-        btn[7].disabled = true; 
-        btn[8].disabled = true; 
+        $(".cell").attr("disabled", true); 
   
         for(i=3;i<10;i=i+3){
             btn[i].style.color = "red"; 
@@ -89,60 +66,45 @@ function isGameOver() {
     else if (((b[1] == 'X') && (b[5] == 'X') && (b[9] == 'X')) ||
              ((b[1] == 'O') && (b[5] == 'O') && (b[9] == 'O'))) { 
  
-        for(i=2;i < 5;i++) {
-            btn[i].disabled = true;
-        }
-        for(i=6;i < 9;i++) {
-            btn[i].disabled = true;
-        }
+        $(".cell").attr("disabled", true);
   
         for(i=1;i<10;i=i+4){
             btn[i].style.color = "red"; 
         }
+
         return true;
     } 
     else if (((b[3] == 'X') && (b[5] == 'X') && (b[7] == 'X')) ||
              ((b[3] == 'O') && (b[5] == 'O') && (b[7] == 'O'))) { 
 
-        btn[1].disabled = true; 
-        btn[2].disabled = true; 
-        btn[4].disabled = true; 
-        btn[6].disabled = true; 
-        btn[8].disabled = true; 
-        btn[9].disabled = true; 
+        $(".cell").attr("disabled", true);
   
         for(i=3;i<8;i=i+2){
             btn[i].style.color = "red"; 
         }
+        
         return true;
     } 
     else if (((b[2] == 'X') && (b[5] == 'X') && (b[8] == 'X')) ||
              ((b[2] == 'O') && (b[5] == 'O') && (b[8] == 'O'))) { 
 
-        btn[1].disabled = true; 
-        btn[2].disabled = true; 
-        btn[4].disabled = true; 
-        btn[6].disabled = true; 
-        btn[7].disabled = true; 
-        btn[9].disabled = true; 
+        $(".cell").attr("disabled", true);
   
         for(i=2;i<9;i=i+3){
             btn[i].style.color = "red"; 
         }
+        
         return true;
     } 
     else if (((b[4] == 'X') && (b[5] == 'X') && (b[6] == 'X')) ||
              ((b[4] == 'O') && (b[5] == 'O') && (b[6] == 'O'))) { 
  
-        for(i=1;i < 4;i++) {
-            btn[i].disabled = true;
-        }
-        for(i=7;i < 10;i++) {
-            btn[i].disabled = true;
-        }
+        $(".cell").attr("disabled", true);
+        
         for(i=4;i<7;i++){
             btn[i].style.color = "red"; 
         }
+        
         return true;
     }
     else {
@@ -163,6 +125,7 @@ function GameTied() {
         return false;
     }
 }
+
 function renderTurnMessage() {
     if (!myTurn) { // If not player's turn disable the board
         $("#message").text("Your opponent's turn");
