@@ -4,6 +4,7 @@ let socket = io.connect(url);
 
 var myTurn = true;
 var symbol;
+flag = 1; 
 
 function getBoardState() {
   var obj = {};
@@ -65,8 +66,8 @@ function makeMove(e) {
     }
 
     socket.emit("make.move", { // Valid move (on client side) -> emit to server
-        symbol: symbol,
-        position: $(this).attr("id")
+        symbol: "X",
+        position: $(this).attr("id")  
     });
 }
 
@@ -302,7 +303,6 @@ function reload_Game() {
 } 
   
 //Player action, switches flag to inititate next player turn
-flag = 1; 
 function insert_Letter(num) { 
     if (flag == 1) { 
         document.getElementById("b" + num).value = "X"; 

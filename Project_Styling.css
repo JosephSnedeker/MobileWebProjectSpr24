@@ -16,17 +16,19 @@ li.navbar {
 li.navbar a.navbar {
     color: white;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
 }
 li.navbar a.navbar:hover {
     background-color: #111;
   }
+#login {
+    float: right;
+}
 body {
     color: black;
     margin: 0;
     background-color: #FFEDD8;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
     font: bolder;
 }
 .game_container {
@@ -110,6 +112,7 @@ body {
     li.navbar{
         display: flex;
         justify-content: center;
+        padding: 14px 16px;
     }
     .game_container {
         margin: 0 
