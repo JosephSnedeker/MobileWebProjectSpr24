@@ -164,8 +164,7 @@ socket.on("move.made", function(data) {
         myTurn = symbol !== "X";
     }
 
-    var isTied = GameTied();
-    if(isTied == true) {
+    if(GameTied()) {
         $("#message").text("Game Tied!");
     } 
     else if (!isGameOver()) { // If game isn't over show who's turn is this
