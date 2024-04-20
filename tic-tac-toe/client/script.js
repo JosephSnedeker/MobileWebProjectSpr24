@@ -74,6 +74,12 @@ function makeMove(e) {
 socket.on("move.made", function(data) {
     $(insert_Letter(data.position))
     myTurn = symbol === data.position.value;
+    if(flag ==0) {
+        flag = 1;
+    }
+    else {
+        flag = 0;
+    }
 
     if (!isGameOver()) { // If game isn't over show who's turn is this
         renderTurnMessage();
@@ -303,11 +309,9 @@ function insert_Letter(num) {
     if (flag == 1) { 
         document.getElementById(num).value = "X"; 
         document.getElementById(num).disabled = true; 
-        flag = 0; 
     } 
     else { 
         document.getElementById(num).value = "O"; 
         document.getElementById(num).disabled = true; 
-        flag = 1; 
     } 
 } 
