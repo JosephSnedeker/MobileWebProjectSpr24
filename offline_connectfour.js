@@ -353,7 +353,7 @@ function myfunc_2() {
   
 // Here onwards, functions check turn of the player 
 // and put accordingly value X or 0 
-
+flag = 0;
 
 function col1(){
 	if (flag == 1){
@@ -548,9 +548,9 @@ function checkWin(cell){
 	checkV(col, row);
 }
 function checkV(col, row){
-	int k = 1; //k is number in a row in a col
-	int help = 0;	
+	
+	
 	}
-}
+
 
 
