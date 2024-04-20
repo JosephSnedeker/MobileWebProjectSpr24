@@ -222,6 +222,7 @@ function insert_Letter(num) {
     } 
 } 
 
+//Function to check and disable cells at the beginning of every turn
 function CheckBoard() {
     for(i=1;i<10;i++) {
         if(document.getElementById("b" + i).value == "X" || document.getElementById("b" + i).value == "O") {
