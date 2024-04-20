@@ -133,6 +133,7 @@ function renderTurnMessage() {
     } else { // Enable it otherwise
         $("#message").text("Your turn.");
         $(".cell").removeAttr("disabled");
+        CheckBoard()
     }
 }
 
@@ -217,3 +218,11 @@ function insert_Letter(num) {
         document.getElementById(num).disabled = true; 
     } 
 } 
+
+function CheckBoard() {
+    for(i=0;i<10;i++) {
+        if(document.getElementById("b" + i).value == "X" || document.getElementById("b" + i).value == "O") {
+            document.getElementById("b" + i).disabled = true;
+        }
+    }
+}
