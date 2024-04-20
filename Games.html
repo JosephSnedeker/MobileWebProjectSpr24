@@ -10,6 +10,11 @@
                 padding: 1rem;
             }
         </style>
+        <script>
+            function setAction() {
+            document.getElementById("mybutton").href = window.location.toString().slice(0,-11) +":8080";
+            }
+        </script>
     </head>
     <body>
         <div>
@@ -37,9 +42,8 @@
             <div class="Game_Selection">
                 <h2>Game Two: Tic-Tac-Toe</h2>
                 <p>Can you reach Tic-Tac-Toe? Choose between offline and online play!</p>
-                <button><a href="offline_tic-tac-toe.html">Offline Play</a></button>
-	
-		<a href="http://54.80.148.76:8080"><button>OnlinePlay</button></a>
+                <button><a href = "offline_tic-tac-toe.html" >Offline Play</a></button>
+                <button><a id="mybutton" href = "#" onclick="setAction()">Online Play</a></button>
             </div>
         </div>
     </body>
