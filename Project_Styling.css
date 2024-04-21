@@ -36,7 +36,17 @@ body {
     padding: 4rem;
     background-color: white;
     margin: 0 30%;
+    
 }
+
+.game_container_c4 {
+	border: 2px solid black;
+	padding: 4rem;
+	background-color: white;
+	margin: 0 25%;
+
+}
+		
 .ui { 
     display: flex; 
     flex-direction: column; 
@@ -60,7 +70,17 @@ body {
     background-color: lightgray;
     outline: none; 
 } 
-/* 3*3 Grid */
+.cellfour{
+	border: 2px solid black;
+	width: 80px;
+	height: 80px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	text-align: center;
+	cursor: pointer;/* 3*3 Grid */
+}
 #b1, #b2, #b3, #b4, #b6{
     border-bottom: 1px solid black; 
 }
@@ -117,4 +137,18 @@ body {
     .game_container {
         margin: 0 
     }
+    .game_container_c4{
+	margin: 0
+    }
+   .cellfour{
+	  border: 2px solid black;
+	 width: 25px;
+	height: 30px;
+       display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	text-align: center;
+	cursor: pointer;/* 3*3 Grid */
+	}
 }
