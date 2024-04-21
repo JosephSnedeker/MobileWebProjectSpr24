@@ -3,13 +3,50 @@
     <head>
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
         <link rel="stylesheet" href="Project_Styling.css">
+        <style>
+            h1 {
+                text-align:center;
+                margin: auto;
+                padding: 1rem;
+            }
+        </style>
+        <script>
+            function setAction() {
+            document.getElementById("mybutton").href = window.location.toString().slice(0,-11) +":8080";
+            }
+        </script>
     </head>
     <body>
-        <div class="Game_Selection">
-            <h2>Bingo Game</h2>
-            <h3>Game One</h3>
-            <p>This is the game</p>
-            <a href="index.html">Return to Home</a>
+        <div>
+            <ul class="navbar">
+                <li class="navbar"><a class="navbar" href="index.html">Home</a></li>
+                <li class="navbar"><a class="navbar" href="Games.html">Games</a></li>
+                <li class="navbar"><a class="navbar" href=login.html>Login</a></li>
+                <li class="navbar">Fun N' Games Incorporated</li>
+            </ul>
+        </div>
+        <div>
+            <h1>Welcome to Our List of Games!</h1>
+            <div class="Game_Selection">
+                <h2>Game One: Bingo</h2>
+                <p>A classic game of Bingo! Choose between offline and online play!</p>
+                <button><a href="offline_bingo.html">Offline Play</a></button>
+                <button><a href="online_bingo.html">Online Play</a></button>
+            </div>
+            <div class="Game_Selection">
+                <h2>Game Two: Connect Four</h2>
+                <p>Can you connect four before your oppenent? Choose between offline and online play!</p>
+                <button><a href="offline_connectfour.html">Offline Play</a></button>
+                <button><a href="online_connect4.html">Online Play</a></button>
+            </div>
+            <div class="Game_Selection">
+                <h2>Game Two: Tic-Tac-Toe</h2>
+                <p>Can you reach Tic-Tac-Toe? Choose between offline and online play!</p>
+
+                <button><a href = "offline_tic-tac-toe.html" >Offline Play</a></button>
+                <button><a id="mybutton" href = "#" onclick="setAction()">Online Play</a></button>
+
+            </div>
         </div>
     </body>
 </html>
