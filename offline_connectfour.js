@@ -356,66 +356,109 @@ function myfunc_2() {
 flag = 0;
 
 function col1(){
+	movePlayed = getLowestRow(1);
 	if (flag == 1){
 		 //if the col is full, dont switch players
-		getLowestRow(1).value= 'X';
+		movePlayed.value= 'X';
+		console.log("go to checkwin");
+		checkWin(movePlayed);
 		flag = 0;
 		
 	}else{
-		getLowestRow(1).value = 'O';
+		movePlayed.value = 'O';
+		checkWin(movePlayed);
 		flag = 1;
 	}
+	
 }
 
 function col2(){
+	movePlayed = getLowestRow(2);
 	if (flag == 1){
-		getLowestRow(2).value = 'X';
-		flag = 0
+		/*if the col is full, dont switch players*/
+		movePlayed.value= 'X';
+		console.log("go to checkwin");
+		checkWin(movePlayed);
+		flag = 0;
+
 	}else{
-		getLowestRow(2).value = 'O';
+		movePlayed.value = 'O';
+		checkWin(movePlayed);
 		flag = 1;
 	}
 }
 function col3(){
+	movePlayed = getLowestRow(3);
 	if (flag == 1){
-		getLowestRow(3).value = 'X';
-		flag = 0
+		/*if the col is full, dont switch players*/
+		movePlayed.value= 'X';
+		console.log("go to checkwin");
+		checkWin(movePlayed);
+		flag = 0;
+
 	}else{
-		getLowestRow(3).value = 'O';
+		movePlayed.value = 'O';
+		checkWin(movePlayed);
 		flag = 1;
 	}
 }
 function col4(){
+	movePlayed = getLowestRow(4);
 	if (flag == 1){
-		getLowestRow(4).value = 'X';
-		flag = 0
+		/*if the col is full, dont switch players*/
+		movePlayed.value= 'X';
+		console.log("go to checkwin");
+		checkWin(movePlayed);
+		flag = 0;
+
 	}else{
-		getLowestRow(4).value = 'O';
+		movePlayed.value = 'O';
+		checkWin(movePlayed);
 		flag = 1;
 	}
 }
 function col5(){
+	movePlayed = getLowestRow(5);
 	if (flag == 1){
-		getLowestRow(5).value = 'X';
-		flag = 0
+		/*if the col is full, dont switch players*/
+		movePlayed.value= 'X';
+		console.log("go to checkwin");
+		checkWin(movePlayed);
+		flag = 0;
+
 	}else{
-		getLowestRow(5).value = 'O';
+		movePlayed.value = 'O';
+		checkWin(movePlayed);
 		flag = 1;
 	}
-}function col6(){
+}
+function col6(){
+	movePlayed = getLowestRow(6);
 	if (flag == 1){
-		getLowestRow(6).value = 'X';
-		flag = 0
+		/*if the col is full, dont switch players*/
+		movePlayed.value= 'X';
+		console.log("go to checkwin");
+		checkWin(movePlayed);
+		flag = 0;
+
 	}else{
-		getLowestRow(6).value = 'O';
+		movePlayed.value = 'O';
+		checkWin(movePlayed);
 		flag = 1;
 	}
-}function col7(){
+}
+function col7(){
+	movePlayed = getLowestRow(7);
 	if (flag == 1){
-		getLowestRow(7).value = 'X';
-		flag = 0
+		/*if the col is full, dont switch players*/
+		movePlayed.value= 'X';
+		console.log("go to checkwin");
+		checkWin(movePlayed);
+		flag = 0;
+
 	}else{
-		getLowestRow(7).value = 'O';
+		movePlayed.value = 'O';
+		checkWin(movePlayed);
 		flag = 1;
 	}
 }
@@ -542,15 +585,188 @@ function getLowestRow(col){
 	}
 	
 }
-function checkWin(cell){
-	checkDiag(col, row);
-	checkH(cell);
-	checkV(col, row);
+function checkWin(movePlayed){
+	winV = false;
+	winD = false;
+	console.log("in checkwin");
+	col = parseInt(movePlayed.id[1]);
+	row = parseInt(movePlayed.id[2]);
+	console.log(row + " " + col);
+		
+	//checkDiag(col, row);
+	//checkH(cell);
+	if (row >= 4){
+		winV = checkV(col,row);
+		
+	}
+	winD = checkDiag(col,row);
+	winH = checkH(col,row);
+	console.log(winV +" " + winD + " " + winH);
+	if (winV|winD|winH){
+		if (flag == 0){
+			document.getElementById("print").innerHTML = "Winner is Player O!!";
+		}else{
+			document.getElementById("print").innerHTML = "Winner is Player X!!";
+		}
+		for (let i = 1; i<=6; i++){
+			for (let j = 1; j<= 7; j++){
+				document.getElementById("f" + j + i).color = "green";
+				document.getElementById("f" + j + i).disabled = true;
+			}
+		}
+
+	}
+	return (winV|winD|winH);
+
+		
 }
-function checkV(col, row){
+function checkV(col, row){//this function tests for vertical wins
+	console.log("in checkV");
+	count = 1;
+	document.getElementById("print").innerHTML = "in checkV";
+	for (let i = 1; i < 4; i++){
+		if (document.getElementById("f" + col + (row - i)).value == document.getElementById("f" + col + row).value){
+			count++;
+		}
+	}
+	if (count == 4){
+		console.log("win");
+		return true;
+	}else{
+		return false;
+	}
 	
-	
+}
+function checkH(col, row){//checking for horizontal wins
+	count = 1;
+	let i = 1;
+	matching = true;
+
+	while(matching == true){//checking right of placed token
+		if(document.getElementById("f" + (col + i) + row) != null){
+			if(document.getElementById("f" + (col +i) + row).value == document.getElementById("f" + col + row).value){
+				matching = true;
+				i++;
+				count++;
+			}else{
+				matching = false;
+			}
+
+		}else{
+			console.log("Null checked R");
+			matching = false;
+		}
+	}
+	i = 1;
+	matching = true;
+
+	while (matching == true){
+		if(document.getElementById("f" + (col - i) + row) != null){
+			if(document.getElementById("f" + (col - i) + row).value == document.getElementById("f" + col + row).value){
+				matching = true;
+				i++;
+				count++
+			}else{
+				matching = false;
+			}
+		}else{
+			console.log("Null checked L");
+			matching = false;
+		}
+	}
+	console.log("Horizontal: " + count);
+	if (count >= 4){
+		console.log("Horz win");
+		return true;
 	}
 
 
+}
+function checkDiag(col,row){
+	console.log("in checkDiag");
+	countMain = 1; //for diagonals going down right
+	let i = 1;
+	matchingMain = true;
+	
+	
+	while (matchingMain == true){//checking right and below of placed token
+		if (document.getElementById("f" + (col + i) + (row - i)) != null){
+			if (document.getElementById("f" + (col + i) + (row - i)).value == document.getElementById("f" + col + row).value){
+				matchingMain = true;
+				i++;
+				countMain++;
+			}else{
+				matchingMain = false;
+			}
+		}else{
+			console.log("Null checked RB"+ " " + (col+i) +" "+ (row-i));
+			matchingMain = false;
+		}
+	}
+	i = 1;
+	matchingMain = true;
+	while (matchingMain == true){// checking left and above of placed token
+		if (document.getElementById("f" + (col - i) + (row + i)) != null){
+			if (document.getElementById("f" + (col - i) + (row + i)).value == document.getElementById("f" + col + row).value){
+				matching = true;
+				i++;
+				countMain++;
+			}else{
+				matchingMain = false;
+			}
+		}else{
+			console.log("Null checked LA" + (col-i) + " " + (row + i));
+			matchingMain = false;
+		}
+
+	}
+	console.log("Count main: " + countMain);
+	if (countMain >= 4){
+		console.log("diagWin");
+		return true;
+	}
+
+
+	
+	countSecond = 1; //for diagonals going up right
+	i = 1;
+	matching = true;
+	while (matching == true){//checking right and above of placed token
+		if (document.getElementById("f" + (col + i) + (row + i)) != null){
+			if (document.getElementById("f" + (col + i) + (row + i)).value == document.getElementById("f" + col + row).value){
+				matching = true;
+				i++;
+				countSecond++;
+			}else{
+				matching = false;
+			}
+		}else{
+			console.log("Null checked RA : " + (col +i) + (row + i));
+			matching = false;
+		}
+	}
+		
+	i = 1;
+	matching = true;
+	while (matching == true){// checking left and below of placed token
+		if (document.getElementById("f" + (col - i) + (row - i)) != null){
+			if (document.getElementById("f" + (col - i) + (row - i)).value == document.getElementById("f" + col + row).value){
+				matching = true;
+				i++;
+				countSecond++;
+			}else{
+				matching = false;
+			}
+		}else{
+			console.log("Null checked LB: " + (col-i) + (row-i));
+			matching = false;
+		}
+		
+	}console.log("Count secondary: " + countSecond);
+	if (countSecond >= 4){
+		console.log("diagWin");
+		return true;
+	}
+	return false;
+}
 
