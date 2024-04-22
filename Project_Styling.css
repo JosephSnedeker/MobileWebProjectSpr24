@@ -6,23 +6,22 @@
 ul.navbar{
     list-style-type: none;
     margin: 0;
-    padding: 14px 16px;
+    padding: .75rem 0rem;
     background-color: #240A34; 
 }
 li.navbar {
+    color: white;
+    padding: .75rem 0rem;
+    justify-content: center;
     display: inline;
-    color: white;
 }
-li.navbar a.navbar {
+a.navbar {
     color: white;
-    text-align: center;
     text-decoration: none;
+    padding: .75rem 1rem;
 }
-li.navbar a.navbar:hover {
+a.navbar:hover {
     background-color: #111;
-  }
-#login {
-    float: right;
 }
 body {
     color: black;
@@ -104,18 +103,14 @@ body {
 /* Reset Button */
 #but { 
     box-sizing: border-box; 
-    width: 95px; 
-    height: 40px; 
     border: 1px solid black; 
     margin-left: auto; 
     border-radius: 8px; 
-    font-family: Verdana, 
-        Geneva, Tahoma, sans-serif; 
-  
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
     background-color: whitesmoke; 
-    color: dodgerblue; 
+    color: purple; 
     font-size: 20px; 
-    cursor: pointer; 
+    cursor: pointer;  
 } 
   
 /* Player turn space */
@@ -131,24 +126,23 @@ body {
 @media(max-width:768px){
     li.navbar{
         display: flex;
-        justify-content: center;
-        padding: 14px 16px;
+        padding: .5rem 1rem;
     }
     .game_container {
         margin: 0 
     }
     .game_container_c4{
-	margin: 0
+	    margin: 0
     }
    .cellfour{
-	  border: 2px solid black;
-	 width: 25px;
-	height: 30px;
-       display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 24px;
-	text-align: center;
-	cursor: pointer;/* 3*3 Grid */
+	    border: 2px solid black;
+	    width: 25px;
+	    height: 30px;
+        display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    font-size: 24px;
+	    text-align: center;
+	    cursor: pointer;/* 3*3 Grid */
 	}
 }
