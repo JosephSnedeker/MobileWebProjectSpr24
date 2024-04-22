@@ -125,7 +125,7 @@ body {
   
 @media(max-width:768px){
     li.navbar{
-       
+        display: flex;
         padding: .5rem 1rem;
     }
     .game_container {
