@@ -157,17 +157,14 @@
             function goGames() {
                 document.getElementById("mybutton2").href =  window.location.toString().slice(0,-6) + "/Games.html";
             }
-            function goLogin() {
-                document.getElementById("mybutton3").href =  window.location.toString().slice(0,-6) + "/login.html";
-            }
         </script>
     </head>
 
     <body>
         <div>
             <ul class="navbar">
-                <li class="navbar"><a class="navbar" href="index.html">Home</a></li>
-                <li class="navbar"><a class="navbar" href="Games.html">Games</a></li>
+                <li class="navbar"><a class="navbar" href="#" onclick="goHome()">Home</a></li>
+                <li class="navbar"><a class="navbar" href="#" onclick="goHome()">Games</a></li>
                 <li style="text-align: center; color: white;"><h3>Games Center</h3></li>
             </ul>
         </div>
