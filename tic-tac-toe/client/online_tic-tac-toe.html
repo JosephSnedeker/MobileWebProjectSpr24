@@ -2,7 +2,7 @@
 <html>
     <head>
         <!-- Base html for tic-tac-toe game based on: https://www.geeksforgeeks.org/simple-tic-tac-toe-game-using-javascript/ -->
-        <!-- Online logic based on https://github.com/Xfox1/tic-tac-toe-->
+        <!-- Online logic based on https://github.com/Xfox1/tic-tac-toe -->
         <meta name="viewport" content="width=device-width", initial-scale="1.0">
         <style>
 	        .Game_Selection {
@@ -13,27 +13,28 @@
             ul.navbar{
                 list-style-type: none;
                 margin: 0;
-                padding: 14px 16px;
+                padding: .75rem 0rem;
                 background-color: #240A34; 
             }
             li.navbar {
+                color: white;
+                padding: .75rem 0rem;
+                justify-content: center;
                 display: inline;
-                color: white;
             }
-            li.navbar a.navbar {
+            a.navbar {
                 color: white;
-                text-align: center;
-                padding: 14px 16px;
                 text-decoration: none;
+                padding: .75rem 1rem;
             }
-            li.navbar a.navbar:hover {
+            a.navbar:hover {
                 background-color: #111;
             }
             body {
                 color: black;
                 margin: 0;
                 background-color: #FFEDD8;
-                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
                 font: bolder;
             }
             .game_container {
@@ -42,6 +43,12 @@
                 background-color: white;
                 margin: 0 30%;
             }
+            .game_container_c4 {
+	            border: 2px solid black;
+	            padding: 4rem;
+	            background-color: white;
+	            margin: 0 25%;
+            }	
             .ui { 
                 display: flex; 
                 flex-direction: column; 
@@ -65,7 +72,17 @@
                 background-color: lightgray;
                 outline: none; 
             } 
-            /* 3*3 Grid */
+            .cellfour{
+	            border: 2px solid black;
+	            width: 80px;
+	            height: 80px;
+	            display: flex;
+	            align-items: center;
+	            justify-content: center;
+	            font-size: 24px;
+	            text-align: center;
+	            cursor: pointer;/* 3*3 Grid */
+            }
             #b1, #b2, #b3, #b4, #b6{
                 border-bottom: 1px solid black; 
             }
@@ -87,9 +104,9 @@
                 border: 1px solid black; 
                 margin-left: auto; 
                 border-radius: 8px; 
-                font-family: Verdana, Geneva, Tahoma, sans-serif; 
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif';
                 background-color: whitesmoke; 
-                color: dodgerblue; 
+                color: purple; 
                 font-size: 20px; 
                 cursor: pointer; 
             } 
@@ -104,27 +121,25 @@
             @media(max-width:768px){
                 li.navbar{
                     display: flex;
-                    justify-content: center;
+                    padding: .5rem 1rem;
                 }
                 .game_container {
                     margin: 0 
                 }
-            }
-            h1 {
-                text-align:center;
-                margin: auto;
-                padding: 1rem;
-            }
-            .board {
-                margin: auto;
-                width: 490px;
-            }
-            .board button {
-                height: 150px;
-                width: 150px;
-                float: left; 
-                margin: 5px;
-                font-size: 3em;
+                .game_container_c4{
+	                margin: 0
+                }
+                .cellfour{
+	                border: 2px solid black;
+	                width: 25px;
+	                height: 30px;
+                    display: flex;
+	                align-items: center;
+	                justify-content: center;
+	                font-size: 24px;
+	                text-align: center;
+	                cursor: pointer;/* 3*3 Grid */
+	            }
             }
             #message {
                 font-size: 3rem;
@@ -142,9 +157,6 @@
             function goGames() {
                 document.getElementById("mybutton2").href =  window.location.toString().slice(0,-6) + "/Games.html";
             }
-            function goLogin() {
-                document.getElementById("mybutton3").href =  window.location.toString().slice(0,-6) + "/login.html";
-            }
         </script>
     </head>
 
@@ -153,8 +165,7 @@
             <ul class="navbar">
                 <li class="navbar"><a id="mybutton" class="navbar" href="#" onclick="goHome()">Home</a></li>
                 <li class="navbar"><a id="mybutton2" class="navbar" href="#" onclick="goGames()">Games</a></li>
-                <li class="navbar"><a id="mybutton3" class="navbar" href="#" onclick="goLogin()">Login</a></li>
-                <li class="navbar">Fun N' Games Incorporated</li>
+                <li style="text-align: center; color: white;"><h3>Games Center</h3></li>
             </ul>
         </div>
         <div id="main"> 
@@ -184,7 +195,7 @@
                 </div> 
             </div>
             <br><br><br> 
-            <button id="but" onclick="reload_Game()">Find New Opponent</button> 
+            <button id="but" onclick="reload_Game()"><h5>Find New Opponent</h5></button> 
             <br><br> 
             <p id="print"></p> 
         </div> 
